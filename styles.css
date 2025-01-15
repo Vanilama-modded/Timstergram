@@ -1,1 +1,54 @@
+:root {
+    --container-w: 320px; /* Width of the container */
+    --container-h: 180px; /* Height of the container */
+    --logo-w: 40px;       /* Width of the logo */
+    --logo-h: 20px;       /* Height of the logo */
+    --speed: 5s;          /* Speed of the animation */
+}
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+}
+
+.container {
+    position: relative;
+    width: var(--container-w);
+    height: var(--container-h);
+    border: 5px solid red;
+    overflow: hidden;
+}
+
+.logo {
+    position: absolute;
+    width: var(--logo-w);
+    height: var(--logo-h);
+    background-color: blue;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: move 10s linear infinite alternate;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(calc(var(--container-w) - var(--logo-w)), 0);
+    }
+    50% {
+        transform: translate(calc(var(--container-w) - var(--logo-w)), calc(var(--container-h) - var(--logo-h)));
+    }
+    75% {
+        transform: translate(0, calc(var(--container-h) - var(--logo-h)));
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
